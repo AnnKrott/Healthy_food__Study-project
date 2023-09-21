@@ -94,20 +94,23 @@ setTimer('.timer', deadline);
 
 const openModalBtn = document.querySelectorAll('[data-modal]'),
     closeModalBtn = document.querySelector('[data-close'),
-    modal = document.querySelector('.modal');
+    modal = document.querySelector('.modal'),
+    modalId = setTimeout(openModal, 20000);
 
-
-openModalBtn.forEach(btn => {
-    btn.addEventListener('click', () => {
-        modal.classList.toggle('show');
-        document.body.style.overflow = 'hidden';
-    })
-})
+function openModal() {
+    modal.classList.toggle('show');
+    document.body.style.overflow = 'hidden';
+    clearInterval(modalId);
+}
 
 function closeModal() {
     modal.classList.toggle('show');
     document.body.style.overflow = '';
 }
+
+openModalBtn.forEach(btn => {
+    btn.addEventListener('click', openModal)
+})
 
 closeModalBtn.addEventListener('click', closeModal);
 
@@ -123,8 +126,16 @@ document.addEventListener('keydown', e => {
     }
 })
 
+function openModalByScroll() {
+    if (Math.round(window.scrollY) + document.documentElement.clientHeight >= document.documentElement.scrollHeight) {
+        openModal();
+        window.removeEventListener('scroll', openModalByScroll);
+    }
+}
 
 
+
+window.addEventListener('scroll', openModalByScroll);
 
 
 
