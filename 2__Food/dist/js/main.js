@@ -1,43 +1,42 @@
-window.addEventListener('DOMContentLoaded', () => {
+// TABS
 
-    const tabItem = document.querySelectorAll('.tabheader__item'),
-        tabItems = document.querySelector('.tabheader__items'),
-        tabContent = document.querySelectorAll('.tabcontent');
+const tabItem = document.querySelectorAll('.tabheader__item'),
+    tabItems = document.querySelector('.tabheader__items'),
+    tabContent = document.querySelectorAll('.tabcontent');
 
-    function hideTabs() {
-        tabContent.forEach(item => {
-            item.classList.remove('show', 'fade');
-            item.classList.add('hide');
-        })
-        tabItem.forEach(item => {
-            item.classList.remove('tabheader__item_active');
-        })
-    }
-
-    function showTheTab(i = 0) {
-        tabContent[i].classList.add('show', 'fade');
-        tabContent[i].classList.remove('hide');
-        tabItem[i].classList.add('tabheader__item_active');
-    }
-
-    tabItems.addEventListener('click', (e) => {
-        const target = e.target;
-
-        if (target && target.classList.contains('tabheader__item')) {
-            tabItem.forEach((item, i) => {
-                if (target == item) {
-                    hideTabs();
-                    showTheTab(i);
-                }
-            })
-        }
+function hideTabs() {
+    tabContent.forEach(item => {
+        item.classList.remove('show', 'fade');
+        item.classList.add('hide');
     })
+    tabItem.forEach(item => {
+        item.classList.remove('tabheader__item_active');
+    })
+}
 
-    hideTabs();
-    showTheTab();
+function showTheTab(i = 0) {
+    tabContent[i].classList.add('show', 'fade');
+    tabContent[i].classList.remove('hide');
+    tabItem[i].classList.add('tabheader__item_active');
+}
+
+tabItems.addEventListener('click', (e) => {
+    const target = e.target;
+
+    if (target && target.classList.contains('tabheader__item')) {
+        tabItem.forEach((item, i) => {
+            if (target == item) {
+                hideTabs();
+                showTheTab(i);
+            }
+        })
+    }
 })
 
-// timer
+hideTabs();
+showTheTab();
+
+// TIMER
 
 const deadline = '2024-05-16';
 
@@ -90,23 +89,36 @@ function setTimer(selector, endtime) {
 }
 setTimer('.timer', deadline);
 
-//modal
+//MODAL
 
 const openModalBtn = document.querySelectorAll('[data-modal]'),
     closeModalBtn = document.querySelector('[data-close'),
     modal = document.querySelector('.modal'),
     modalId = setTimeout(openModal, 20000);
 
+//functions
+
 function openModal() {
     modal.classList.toggle('show');
     document.body.style.overflow = 'hidden';
+    document.documentElement.style.scrollbarGutter = 'stable';
     clearInterval(modalId);
+    window.removeEventListener('scroll', openModalByScroll);
 }
 
 function closeModal() {
     modal.classList.toggle('show');
     document.body.style.overflow = '';
 }
+
+function openModalByScroll() {
+    if (Math.round(window.scrollY) + document.documentElement.clientHeight >= document.documentElement.scrollHeight) {
+        openModal();
+        window.removeEventListener('scroll', openModalByScroll);
+    }
+}
+
+//eventlisteners
 
 openModalBtn.forEach(btn => {
     btn.addEventListener('click', openModal)
@@ -126,16 +138,63 @@ document.addEventListener('keydown', e => {
     }
 })
 
-function openModalByScroll() {
-    if (Math.round(window.scrollY) + document.documentElement.clientHeight >= document.documentElement.scrollHeight) {
-        openModal();
-        window.removeEventListener('scroll', openModalByScroll);
+window.addEventListener('scroll', openModalByScroll);
+
+
+// CARDS
+
+class Card {
+    constructor(src, alt, title, descr, price, parentSelector, ...classes) {
+        this.src = src;
+        this.alt = alt;
+        this.title = title;
+        this.descr = descr;
+        this.price = price;
+        //курс валют
+        this.transfer = 27;
+        this.changeToUAH();
+        // 
+        this.parent = document.querySelector(parentSelector);
+        this.classes = classes;
+    }
+
+    changeToUAH() {
+        this.price *= this.transfer;
+    }
+
+    render() {
+        const div = document.createElement('div');
+        if (this.classes.length === 0) {
+            this.div = 'menu__item';
+            div.classList.add(this.div);
+        } else {
+            this.classes.forEach(className => div.classList.add(className));
+        }
+
+        div.innerHTML = `
+            <img src=${this.src} alt=${this.alt}>
+            <h3 class="menu__item-subtitle">${this.title}</h3>
+            <div class="menu__item-descr">${this.descr}</div>
+            <div class="menu__item-divider"></div>
+            <div class="menu__item-price">
+                <div class="menu__item-cost">Цена:</div>
+                <div class="menu__item-total"><span>${this.price}</span> грн/день</div>
+            </div>
+        `;
+        this.parent.append(div);
     }
 }
 
-
-
-window.addEventListener('scroll', openModalByScroll);
-
+new Card(
+    "img/tabs/hamburger.jpg",
+    "hamburger",
+    'Меню "Сытное"',
+    'Меню "Сытное" - это новый подход к приготовлению блюд: больше свежих овощей и фруктов.Продукт активных и здоровых людей.Это абсолютно новый продукт с оптимальной ценой и высоким качеством!',
+    9,
+    '.menu .container',
+    // 'menu__item',
+    // 'big',
+    // 'small',
+).render();
 
 
