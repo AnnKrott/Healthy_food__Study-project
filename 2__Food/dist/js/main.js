@@ -220,42 +220,34 @@ function postData(form) {
         display: block;
         margin: 0 auto;
         `;
-
         form.insertAdjacentElement('afterend', statusMessage);
 
-        const request = new XMLHttpRequest();
-        request.open('POST', 'server.php');
-        request.setRequestHeader('Content-type', 'application/json');
-
         const formData = new FormData(form);
-        // request.send(formData);
-
         const obj = {};
         formData.forEach(function (key, value) {
             obj[key] = value;
         });
 
-        const json = JSON.stringify(obj);
-        request.send(json);
-
-        request.addEventListener('load', () => {
-            if (request.status === 200) {
-                showThanksModal(message.success);
-
-                form.reset();
-                statusMessage.remove();
-
-                console.log(request.response);
-            } else {
-                showThanksModal(message.failure);
-            }
+        fetch('server.php', {
+            method: "POST",
+            headers: { 'Content-type': 'application/json' },
+            body: JSON.stringify(obj),
         })
+            .then(data => data.text())
+            .then(data => {
+                showThanksModal(message.success);
+                statusMessage.remove();
+                console.log(data);
+            })
+            .catch(() => {
+                showThanksModal(message.failure);
+            })
+            .finally(() => {
+                form.reset();
+            });
 
     })
-
-
-
-}
+};
 
 // THANKSMODAL
 
