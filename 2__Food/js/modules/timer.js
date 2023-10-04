@@ -22,7 +22,7 @@ function timer() {
 
     function getZero(num) {
         if (num >= 0 && num < 10) {
-            return num = `0${num}`
+            return num = `0${num}`;
         } else {
             return num;
         }
@@ -38,8 +38,8 @@ function timer() {
         updateTimer();
 
         function updateTimer() {
-            const remainingTime = getTimeRemainig(endtime);
-            difference = getZero(remainingTime.difference);
+            const remainingTime = getTimeRemainig(endtime),
+                difference = getZero(remainingTime.difference);
             sec.innerHTML = getZero(remainingTime.sec);
             min.innerHTML = getZero(remainingTime.min);
             hours.innerHTML = getZero(remainingTime.hours);
@@ -53,4 +53,4 @@ function timer() {
     setTimer('.timer', deadline);
 };
 
-module.exports = timer;
+export default timer;

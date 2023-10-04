@@ -38,4 +38,4 @@ function tabs() {
     showTheTab();
 };
 
-module.exports = tabs;
+export default tabs;
