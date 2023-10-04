@@ -1,8 +1,5 @@
-function timer() {
+function timer(id, deadline) {
     // TIMER
-
-    const deadline = '2024-05-16';
-
     function getTimeRemainig(endtime) {
         const difference = Date.parse(endtime) - Date.parse(new Date());
 
@@ -50,7 +47,7 @@ function timer() {
             }
         }
     }
-    setTimer('.timer', deadline);
+    setTimer(id, deadline);
 };
 
 export default timer;
