@@ -36,7 +36,6 @@ function form(formSelector, modalId) {
             postData('http://localhost:3000/requests', json)
                 .then(data => {
                     showThanksModal(message.success);
-                    statusMessage.remove();
                     console.log(data);
                 })
                 .catch(() => {
@@ -44,6 +43,7 @@ function form(formSelector, modalId) {
                 })
                 .finally(() => {
                     form.reset();
+                    statusMessage.remove();
                 });
 
         })
