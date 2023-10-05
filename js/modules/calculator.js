@@ -87,7 +87,7 @@ function calculator() {
             if (input.value.match(/\D/g)) {
                 input.style.border = '1px solid red';
             } else {
-                input.style.border = 'none';
+                input.style.border = 'border: 1px solid #303030';
             }
         })
     }
