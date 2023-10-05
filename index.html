@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Food</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/style_js.css">
@@ -13,22 +13,26 @@
 
 <body>
     <header class="header">
-        <div class="header__left-block">
-            <div class="header__logo">
-                <img src="icons/logo.svg" alt="Логотип">
+        <div class="container">
+            <div class="header__wrapper">
+                <div class="header__left-block">
+                    <div class="header__logo">
+                        <img src="icons/logo.svg" alt="Логотип">
+                    </div>
+                    <nav class="header__links">
+                        <a href="#" class="header__link">Доставка питания</a>
+                        <a href="#" class="header__link">Второй пункт</a>
+                    </nav>
+                </div>
+                <div class="header__right-block">
+                    <button data-modal class="btn btn_white">Связаться с нами</button>
+                </div>
             </div>
-            <nav class="header__links">
-                <a href="#" class="header__link">Доставка питания</a>
-                <a href="#" class="header__link">Второй пункт</a>
-            </nav>
-        </div>
-        <div class="header__right-block">
-            <button data-modal class="btn btn_white">Связаться с нами</button>
         </div>
     </header>
 
     <main>
-        <section class="preview">
+        <section class="preview none1">
             <div class="bgc_blue"></div>
             <div class="container">
                 <div class="tabcontainer">
@@ -77,9 +81,7 @@
             </div>
         </section>
 
-        <div class="divider"></div>
-
-        <section class="offer">
+        <section class="offer none1">
             <div class="bgc_y"></div>
             <div class="container">
                 <div class="offer__text">
@@ -144,9 +146,7 @@
             </div>
         </section>
 
-        <div class="divider"></div>
-
-        <section class="calculating">
+        <section class="calculating none1">
             <div class="container">
                 <h2 class="title">Рассчитаем вашу потребность в калориях?
                 </h2>
@@ -195,18 +195,56 @@
             </div>
         </section>
 
-        <div class="divider"></div>
-
-        <section class="menu">
+        <section class="menu none1">
             <h2 class="title">Наше меню на день</h2>
 
             <div class="menu__field">
                 <div class="container">
+                    <div class="menu__item">
+                        <img src="img/tabs/vegy.jpg" alt="vegy">
+                        <h3 class="menu__item-subtitle">Меню "Фитнес"</h3>
+                        <div class="menu__item-descr">Меню "Фитнес" - это новый подход к приготовлению блюд: больше
+                            свежих овощей и фруктов.
+                            Продукт активных и здоровых людей. Это абсолютно новый продукт с оптимальной ценой и высоким
+                            качеством!</div>
+                        <div class="menu__item-divider"></div>
+                        <div class="menu__item-price">
+                            <div class="menu__item-cost">Цена:</div>
+                            <div class="menu__item-total"><span>229</span> грн/день</div>
+                        </div>
+                    </div>
+                    <div class="menu__item">
+                        <img src="img/tabs/elite.jpg" alt="elite">
+                        <h3 class="menu__item-subtitle">Меню “Премиум”</h3>
+                        <div class="menu__item-descr">В меню “Премиум” мы используем не только красивый дизайн упаковки,
+                            но и качественное
+                            исполнение блюд. Красная рыба, морепродукты, фрукты - ресторанное меню без похода в
+                            ресторан!</div>
+                        <div class="menu__item-divider"></div>
+                        <div class="menu__item-price">
+                            <div class="menu__item-cost">Цена:</div>
+                            <div class="menu__item-total"><span>550</span> грн/день</div>
+                        </div>
+                    </div>
+                    <div class="menu__item">
+                        <img src="img/tabs/post.jpg" alt="post">
+                        <h3 class="menu__item-subtitle">Меню "Постное"</h3>
+                        <div class="menu__item-descr">Меню “Постное” - это тщательный подбор ингредиентов: полное
+                            отсутствие продуктов
+                            животного происхождения, молоко из миндаля, овса, кокоса или гречки, правильное количество
+                            белков за счет тофу и
+                            импортных вегетарианских стейков. </div>
+                        <div class="menu__item-divider"></div>
+                        <div class="menu__item-price">
+                            <div class="menu__item-cost">Цена:</div>
+                            <div class="menu__item-total"><span>430</span> грн/день</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="order">
+        <section class="order none1">
             <div class="container">
                 <div class="title">Заказывай пробный день прямо сейчас!</div>
                 <form action="#" class="order__form">
@@ -220,7 +258,7 @@
 
         <div class="divider"></div>
 
-        <section class="promotion">
+        <section class="promotion none1">
             <div class="bgc_y"></div>
             <div class="container">
                 <div class="promotion__text">
@@ -258,7 +296,7 @@
         </section>
     </main>
 
-    <footer class="footer">
+    <footer class="footer none1">
         <div class="container">
             <div class="social">
                 <div class="subtitle">Мы в социальных сетях:</div>
