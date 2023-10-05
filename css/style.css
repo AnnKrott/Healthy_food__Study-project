@@ -39,12 +39,13 @@ a {
     font-size: 18px;
     font-weight: 500;
 
-    border: 1px solid rgba(0, 0, 0, .2);
+    border: 1px solid #303030;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, .1);
 
     cursor: pointer;
     transition: .3s all;
     outline: 0;
-    border-radius: 15px;
+
 }
 
 .btn_white {
@@ -62,7 +63,7 @@ a {
 }
 
 .btn:hover {
-    box-shadow: 0 4px 30px rgba(0, 0, 0, .3);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, .2);
 }
 
 .container {
@@ -119,7 +120,7 @@ a {
     margin-right: 45px;
     font-weight: 500;
     font-size: 20px;
-    color: #303030;
+    color: #000;
 }
 
 .header__link:after {
@@ -188,16 +189,6 @@ a {
     margin-top: 35px;
 }
 
-.bgc_blue {
-    position: absolute;
-    right: 0;
-    top: -155px;
-    width: 50vw;
-    height: 900px;
-    background: rgba(146, 242, 255, .15);
-    z-index: -1;
-}
-
 .tabcontainer {
     display: flex;
     max-width: 1130px;
@@ -214,8 +205,9 @@ a {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-top-left-radius: 15px;
-    border-bottom-left-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, .1);
+    border: 0.5px solid #303030;
+    border-right: none;
 }
 
 .tabcontent__descr {
@@ -224,7 +216,8 @@ a {
     right: -177px;
     width: 550px;
     height: 359px;
-    background: rgb(182 255 174 / 80%);
+    background: rgb(194 199 237 / 85%);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, .1);
     padding: 50px;
 
     font-family: inherit;
@@ -233,8 +226,8 @@ a {
     line-height: 36px;
     color: rgb(0, 0, 0);
 
-    border: .5px solid #c0c0c0;
-    border-radius: 15px;
+    border: .5px solid #303030;
+
 }
 
 .tabheader {
@@ -242,9 +235,8 @@ a {
     padding: 35px 30px;
     background-color: #fff;
 
-    border: .5px solid #cccbcb;
-    border-top-right-radius: 15px;
-    border-bottom-right-radius: 15px;
+    border: .5px solid #303030;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, .1);
 }
 
 .tabheader h3 {
@@ -255,7 +247,7 @@ a {
 .tabheader__items {
     margin-top: 35px;
     padding-left: 26px;
-    border-left: 1px solid #000
+    border-left: 0.5px solid #000;
 }
 
 .tabheader__item {
@@ -279,6 +271,10 @@ a {
     position: relative
 }
 
+.offer__title {
+    margin-left: 20px;
+}
+
 .offer .container {
     display: flex;
     justify-content: space-between
@@ -286,11 +282,12 @@ a {
 
 .offer .bgc_y {
     position: absolute;
-    width: 1109px;
+    width: 900px;
     height: 780px;
-    background: rgba(243, 255, 222, .45);
+    background: rgb(182 206 209 / 15%);
     z-index: -1;
-    top: 50px
+    top: 50px;
+    border: .5px solid #303030;
 }
 
 .offer__text {
@@ -300,6 +297,7 @@ a {
 .offer__descr {
     font-size: 19px;
     margin-top: 30px;
+    margin-left: 20px;
     font-weight: 400;
     line-height: 24px;
 }
@@ -319,6 +317,7 @@ a {
     font-weight: 700;
     font-size: 20px;
     margin-top: 20px;
+    margin-left: 20px;
     color: #3f8f63;
 }
 
@@ -328,6 +327,7 @@ a {
 
 .offer__advantages-text {
     margin-top: 20px;
+    margin-left: 20px;
     font-size: 19px;
     font-weight: 400;
     line-height: 21px
@@ -352,7 +352,9 @@ a {
 .offer__slider-wrapper {
     width: 100%;
     margin-top: 15px;
-    border-radius: 15px;
+
+    box-shadow: 0 4px 20px rgba(0, 0, 0, .1);
+    border: .5px solid #303030;
 }
 
 .offer__slider-inner-active {
@@ -389,7 +391,7 @@ a {
     width: 650px;
     height: 393px;
     object-fit: cover;
-    border-radius: 15px;
+
 }
 
 .carousel-indicators {
@@ -432,13 +434,14 @@ a {
 .calculating__field {
     width: 100%;
     margin-top: 50px;
-    background: rgba(146, 242, 255, .15);
-    padding: 30px 0 40px 0
+    background: rgb(182 206 209 / 15%);
+    padding: 30px 0 40px 0;
+    border: .5px solid #303030;
 }
 
 .calculating__subtitle {
     text-align: center;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 700;
     margin-top: 30px
 }
@@ -473,18 +476,22 @@ a {
     height: 50px;
     padding: 0 10px;
     background: #fff;
-    border: .5px solid #a5a5a5;
+    border: .5px solid #303030;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, .1);
     text-align: center;
     font-size: 16px;
     font-weight: 500;
     cursor: pointer;
     outline: 0;
     transition: .3s all;
-    border-radius: 15px;
 }
 
 .calculating__choose-item_active {
-    background-color: rgb(182 255 174 / 80%);
+    background-color: rgb(194 199 237 / 85%);
+}
+
+#female {
+    border-right: none;
 }
 
 .calculating__choose_medium {
@@ -534,7 +541,7 @@ a {
 .menu .container {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start
+    gap: 50px;
 }
 
 .menu .title {
@@ -545,7 +552,6 @@ a {
     margin-top: 50px;
     padding: 50px 0;
     width: 100%;
-    background: rgba(249, 254, 126, .25)
 }
 
 .menu__item {
@@ -555,16 +561,15 @@ a {
     font-size: 16px;
     font-weight: 300;
 
-    border: .5px solid #a0a0a0;
-    border-radius: 15px;
+    border: .5px solid #303030;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, .1);
+
 }
 
 .menu__item img {
     width: 100%;
     height: 200px;
     object-fit: cover;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
 }
 
 .menu__item-subtitle {
@@ -623,32 +628,22 @@ a {
     width: 280px;
     height: 50px;
     background: #fff;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, .2);
-    border: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, .1);
     font-size: 18px;
     text-align: center;
     padding: 0 20px;
     outline: 0;
-    border-radius: 15px;
+
+    border: .5px solid #303030;
 }
 
 .promotion {
     padding: 70px 0 240px 0;
-    position: relative
+    position: relative;
 }
 
 .promotion .container {
-    display: flex
-}
-
-.promotion .bgc_y {
-    position: absolute;
-    width: 50%;
-    height: 499px;
-    background: rgba(243, 255, 222, .35);
-    z-index: -1;
-    top: -50px;
-    left: 0
+    display: flex;
 }
 
 .promotion__text {
@@ -659,7 +654,7 @@ a {
     margin-top: 40px;
     font-size: 20px;
     line-height: 24px;
-    font-weight: 300
+    font-weight: 400;
 }
 
 .promotion__descr span {
@@ -687,11 +682,12 @@ a {
     width: 102px;
     height: 120px;
     background: #fff;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, .25);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, .1);
     font-size: 16px;
     font-weight: 300;
     text-align: center;
-    border-radius: 15px;
+
+    border: .5px solid #303030;
 }
 
 .promotion__timer .timer__block span {
@@ -753,18 +749,17 @@ a {
     width: 100%;
     padding: 40px;
     background-color: #fff;
-    border: 1px solid rgba(0, 0, 0, .2);
+    border: .5px solid #303030;
     border-radius: 4px;
     max-height: 80vh;
     overflow-y: auto;
-    border-radius: 15px;
 }
 
 .modal__close {
     position: absolute;
-    top: 8px;
+    top: 0px;
     right: 14px;
-    font-size: 30px;
+    font-size: 40px;
     color: #000;
     opacity: .5;
     font-weight: 700;
@@ -785,13 +780,12 @@ a {
     width: 280px;
     height: 50px;
     background: #fff;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, .2);
-    border: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, .1);
     font-size: 18px;
     text-align: center;
     padding: 0 20px;
     outline: 0;
-    border-radius: 15px;
+    border: .5px solid #303030;
 }
 
 .modal .btn {
